@@ -1,4 +1,7 @@
-// ezek meg itt a különbözõ URL véghez tartozó logikák
+ï»¿var fÃ¡jlZÃ¼sztem = require("fs");
+var eztNemIgyKellMegoldani = "";
+
+// ezek meg itt a kÃ¼lÃ¶nbÃ¶zÅ‘ URL vÃ©ghez tartozÃ³ logikÃ¡k
 function start() {
     console.log("Request handler \"start\" was called.")
     return "You requested \"start\"."
@@ -9,5 +12,11 @@ function upload() {
     return "You requested \"upload\"."
 }
 
+function socket() {
+    console.log("Request handler \"socket\" was called.");
+    return fÃ¡jlZÃ¼sztem.readFileSync("./html/socket.html");
+}
+
 exports.start = start;
 exports.upload = upload;
+exports.socket = socket;

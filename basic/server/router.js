@@ -1,13 +1,13 @@
-function route(handlers, pathName) {
-    // megnézi, hogy az URL véggel van-e valami requestHandler függvény tárolva,
-    // ha van, akkor meghívja azt a már elkészített üres HTTP response-al
+ï»¿function route(handlers, pathName) {
+    // megnÃ©zi, hogy az URL vÃ©ggel van-e valami requestHandler fÃ¼ggvÃ©ny tÃ¡rolva,
+    // ha van, akkor meghÃ­vja azt a mÃ¡r elkÃ©szÃ­tett Ã¼res HTTP response-al
     if (typeof handlers[pathName] === 'function' ) {
-        // itt hívja meg
+        // itt hÃ­vja meg
         return handlers[pathName]();
     } else {
-        // ha meg nem, akkor üres marad a HTTP response csak a konzolra böfögünk valamit
+        // ha meg nem, akkor Ã¼res marad a HTTP response csak a konzolra bÃ¶fÃ¶gÃ¼nk valamit
         console.log("No request handler found for \"" + pathName + "\"");
-        return "404 Not found \"" + pathName +"\". Oooops!"
+        return "404 Not found \"" + pathName +"\". Oooops!";
     }
 }
 

@@ -1,18 +1,19 @@
-// server fogadja a HTTP request-et és elõállít egy üres response-t
+ï»¿// server fogadja a HTTP request-et Ã©s elÅ‘Ã¡llÃ­t egy Ã¼res response-t
 var server = require("./server/server");
-// router mondja meg, hogy a URL végétõl függõen mit csinálunk
+// router mondja meg, hogy a URL vÃ©gÃ©tÅ‘l fÃ¼ggÅ‘en mit csinÃ¡lunk
 var router = require("./server/router");
-// URL végtõl függõen valamit beleír a server általá elõállított üres response-ba
+// URL vÃ©gtÅ‘l fÃ¼ggÅ‘en valamit beleÃ­r a server Ã¡ltalÃ¡ elÅ‘Ã¡llÃ­tott Ã¼res response-ba
 var requestHandler = require("./server/requesthandler");
 
-// asszociatív tömb (nem számmal indexelt, hanem valami objektummal)
-// elemei: ["URL vége" = függvény] URL vég kezelõ logikák
+// asszociatÃ­v tÃ¶mb (nem szÃ¡mmal indexelt, hanem valami objektummal)
+// elemei: ["URL vÃ©ge" = fÃ¼ggvÃ©ny] URL vÃ©g kezelÅ‘ logikÃ¡k
 var handlers = {
     "/" : requestHandler.start,
     "/start" : requestHandler.start,
-    "/upload" : requestHandler.upload
+    "/upload" : requestHandler.upload,
+    "/socket" : requestHandler.socket
 }
 
-// elindítjuk a servert
-// ez meg itt TIPIKUS Dependency Injection (egy túl hype-olt elmélet/poblamozás technika)
+// elindÃ­tjuk a servert
+// ez meg itt TIPIKUS Dependency Injection (egy tÃºl hype-olt elmÃ©let/poblamozÃ¡s technika)
 server.start(router.route, handlers);
